@@ -13,5 +13,15 @@ jobs:
       - run: pwd
       - run: touch gitA
       - name: List
-        run: ls
+
+  test:
+     runs-on: ubuntu-latest
+
+     steps:
+       - run: ls -la
+       - run: pwd
+       - run: touch gitA
+       - name: List
+       - run: ls
+       - run: ls
 
