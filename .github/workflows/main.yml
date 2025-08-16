@@ -8,9 +8,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-steps:
-    - run: lsb -la
-    - run: pwd
-    - run: touch gitA
-    - name: List
-      run: ls
+    steps:
+      - run: lsb -la
+      - run: pwd
+      - run: touch gitA
+      - name: List
+        run: ls
