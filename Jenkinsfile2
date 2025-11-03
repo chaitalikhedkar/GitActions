@@ -5,21 +5,21 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building project...'
-                sh 'python main.py'
+                sh 'python scripts/main.py'
             }
         }
 
         stage('Test') {
             steps {
                 echo 'Running tests...'
-                sh 'pytest tests/'  // if you use pytest
+                // add test commands here
             }
         }
     }
 
     post {
         success {
-            echo '✅ Pipeline completed successfully!'
+            echo '✅ Build Successful!'
         }
         failure {
             echo '❌ Pipeline failed. Please check the logs.'
