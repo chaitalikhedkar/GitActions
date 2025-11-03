@@ -1,0 +1,29 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Clone Repository') {
+            steps {
+                echo 'Cloning the GitHub repository...'
+                checkout scm  // Automatically checks out the repo Jenkins is pulling from
+            }
+        }
+
+        stage('Build') {
+            steps {
+                echo 'Building project...'
+                sh 'python main.py'   // Example build step — adjust as needed
+            }
+        }
+    }
+
+    post {
+        success {
+            echo '✅ Build Successful!'
+        }
+        failure {
+            echo '❌ Build Failed!'
+        }
+    }
+}
+
