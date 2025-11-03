@@ -2,28 +2,27 @@ pipeline {
     agent any
 
     stages {
-        stage('Clone Repository') {
-            steps {
-                echo 'https://github.com/chaitalikhedkar/GitActions.git'
-                checkout scm 
-            }
-        }
-
         stage('Build') {
             steps {
                 echo 'Building project...'
-                sh 'python main.py'  
+                sh 'python main.py'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                echo 'Running tests...'
+                sh 'pytest tests/'  // if you use pytest
             }
         }
     }
 
     post {
         success {
-            echo '✅ Build Successful!'
+            echo '✅ Pipeline completed successfully!'
         }
         failure {
-            echo '❌ Build Failed!'
+            echo '❌ Pipeline failed. Please check the logs.'
         }
     }
 }
-
