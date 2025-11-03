@@ -5,14 +5,14 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building project...'
-                sh 'python scripts/main.py'
+    
             }
         }
 
         stage('Test') {
             steps {
                 echo 'Running tests...'
-                // add test commands here
+                
             }
         }
     }
